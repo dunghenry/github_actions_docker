@@ -1,11 +1,11 @@
-FROM python:3.7-slim
+FROM python:3.8-slim-buster
 
-WORKDIR app
+WORKDIR /app
 
-COPY ./src ./
+COPY requirements.txt requirements.txt
 
-COPY requirements.txt ./
+RUN pip3 install -r requirements.txt
 
-RUN pip install -r requirements.txt
+COPY . .
 
-CMD ["sh", "-c", "gunicorn --bind :$PORT --workers 1 --threads 4 --timeout 0 main:app"]
+CMD [ "python3", "-m" , "flask", "run", "--host=0.0.0.0"]
