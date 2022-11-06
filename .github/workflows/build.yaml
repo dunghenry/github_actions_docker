@@ -1,0 +1,11 @@
+name: github_actions
+on:
+  push:
+    branch: [master]
+jobs:
+  docker:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+        
