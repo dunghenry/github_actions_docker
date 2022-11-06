@@ -26,6 +26,6 @@ jobs:
           push: true
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/github_actions
       - name: Verify
-        run: echo ${{ steps.docker_build.digest }}
+        run: echo ${{ steps.docker_build.outputs.digest }}
 
 
